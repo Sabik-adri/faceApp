@@ -4,7 +4,7 @@ import cv2
 app = Flask(__name__)
 
 trained_face_data = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-img = cv2.imread('vendatta.png', cv2.IMREAD_UNCHANGED)
+img = cv2.imread('kawsar.png', cv2.IMREAD_UNCHANGED)
 scale_factor = 1.2
 
 def detect_faces():
