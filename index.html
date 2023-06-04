@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Face Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        #video_feed {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Face Detection</h1>
+    <img id="video_feed" src="{{ url_for('video_feed') }}" />
+    <a class="button" href="/face">Go to Face Detection</a>
+    <script>
+        var video_feed = document.getElementById('video_feed');
+        video_feed.onload = function() {
+            setInterval(function() {
+                video_feed.src = "{{ url_for('video_feed') }}" + "?" + new Date().getTime();
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
