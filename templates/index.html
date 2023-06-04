@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Face Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        #video_feed {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Face Detection</h1>
+    <img id="video_feed" src="{{ url_for('video_feed') }}" />
+    <script>
+        var video_feed = document.getElementById('video_feed');
+        video_feed.onload = function() {
+            setInterval(function() {
+                video_feed.src = "{{ url_for('video_feed') }}" + "?" + new Date().getTime();
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
